@@ -25,5 +25,6 @@ function getInput(e) {
     });
   } else {
     // Clear profile
+    ui.clearProfile();
   }
 }
