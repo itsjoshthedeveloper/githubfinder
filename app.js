@@ -24,6 +24,8 @@ function getInput(e) {
       } else {
         // Show profile
         ui.showProfile(user.profile);
+        // Show repos
+        ui.showRepos(user.repos);
         // Clear alert
         ui.clearAlert();
       }
