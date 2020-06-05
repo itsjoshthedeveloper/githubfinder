@@ -1,8 +1,12 @@
 class UI {
   constructor() {
+    // UI vars
     this.UIprofile = document.querySelector('#profile');
+    this.UIcontainer = document.querySelector('.searchContainer');
+    this.UIsearch = document.querySelector('.search');
   }
 
+  // Show profile
   showProfile(profile) {
     this.UIprofile.innerHTML = `
       <div class="card card-body mb-3">
@@ -31,6 +35,26 @@ class UI {
     `;
   }
 
+  // Show alert message
+  showAlert(msg, className) {
+    // Clear any remaining alerts
+    this.clearAlert();
+    // Create and insert div
+    const div = document.createElement('div');
+    div.className = className;
+    div.textContent = msg;
+    this.UIcontainer.insertBefore(div, this.UIsearch);
+  }
+
+  // Clear alert message
+  clearAlert() {
+    const currentAlert = document.querySelector('.alert');
+    if (currentAlert) {
+      currentAlert.remove();
+    }
+  }
+
+  // Clear profile
   clearProfile() {
     this.UIprofile.innerHTML = '';
   }
