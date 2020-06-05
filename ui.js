@@ -8,6 +8,16 @@ class UI {
 
   // Show profile
   showProfile(profile) {
+    // Website formatting
+    if (profile.blog.includes('http://')) {
+      profile.blog = profile.blog.replace('http://', '');
+    } else if (profile.blog.includes('https://')) {
+      profile.blog = profile.blog.replace('https://', '');
+    }
+    if (profile.blog.slice(-1) === '/') {
+      profile.blog = profile.blog.slice(0, -1);
+    }
+    // Create profile element
     this.UIprofile.innerHTML = `
       <div class="card card-body mb-3">
       <div class="row">
@@ -23,7 +33,7 @@ class UI {
           <br><br>
           <ul class="list-group">
             <li class="list-group-item">Company: ${profile.company}</li>
-            <li class="list-group-item">Website: ${profile.blog}</li>
+            <li class="list-group-item">Website: <a href="http://${profile.blog}" target="_blank">${profile.blog}</a></li>
             <li class="list-group-item">Location: ${profile.location}</li>
             <li class="list-group-item">Member Since: ${profile.created_at}</li>
           </ul>
@@ -37,6 +47,7 @@ class UI {
 
   // Show repos
   showRepos(repos) {
+    // Create repo elements
     let output = '';
     repos.forEach((repo) => {
       output += `
