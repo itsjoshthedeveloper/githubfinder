@@ -1,7 +1,11 @@
 class GitHub {
   constructor() {
-    this.client_id = '477c986d5b2dbd5249af';
-    this.client_secret = 'ce27bc52b26be994d8aafae654f763682697bd8b';
+    // Access token
+    this.config = {
+      headers: {
+        Authorization: '5353b9e95c46b19ad3ce96d88cb0f4d182540068',
+      },
+    };
     // Number of returned repos
     this.repos_count = 6000;
     // Repos sort
@@ -12,13 +16,15 @@ class GitHub {
   async getUser(user) {
     // Gets profile
     const profileResponse = await fetch(
-      `https://api.github.com/users/${user}?client_id=${this.client_id}&client_secret=${this.client_secret}`
+      `https://api.github.com/users/${user}`,
+      this.config
     );
     const profile = await profileResponse.json();
 
     // Gets repos
     const reposResponse = await fetch(
-      `https://api.github.com/users/${user}/repos?per_page=${this.repos_count}&sort=${this.repos_sort}&client_id=${this.client_id}&client_secret=${this.client_secret}`
+      `https://api.github.com/users/${user}/repos?per_page=${this.repos_count}&sort=${this.repos_sort}`,
+      this.config
     );
     const repos = await reposResponse.json();
 
