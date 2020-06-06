@@ -35,14 +35,10 @@ function getInput(e) {
         // Show alert
         ui.showAlert('User not found', 'alert alert-danger');
       } else {
+        // Format user
+        user = formatUser(user);
         // Show profile
         ui.showProfile(user.profile);
-        // Sort repos by popularity
-        if (sort === 'Popular') {
-          user.repos.sort(
-            (a, b) => (a.stargazers_count - b.stargazers_count) * -1
-          );
-        }
         // Show repos
         ui.showRepos(user.repos.slice(0, repos_count));
         // Clear alert
@@ -61,4 +57,19 @@ function checkSort() {
   if (sort !== UIsort.childNodes[2].textContent.trim()) {
     sort = UIsort.childNodes[2].textContent.trim();
   }
+}
+
+// Format user
+function formatUser(user) {
+  // Sort repos by popularity
+  if (sort === 'Popular') {
+    user.repos.sort((a, b) => (a.stargazers_count - b.stargazers_count) * -1);
+  }
+  // Remove 'null' strings
+  Object.keys(user.profile).forEach((key) => {
+    if (user.profile[key] === null) {
+      user.profile[key] = '';
+    }
+  });
+  return user;
 }
