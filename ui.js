@@ -21,10 +21,10 @@ class UI {
             ${profile.name}
             <small class="text-muted">${profile.login}</small>
           </h4>
-          <span class="badge badge-primary">Public Repos: ${profile.public_repos}</span>
-          <span class="badge badge-secondary">Public Gists: ${profile.public_gists}</span>
-          <span class="badge badge-success">Followers: ${profile.followers}</span>
-          <span class="badge badge-info">Following: ${profile.following}</span>
+          <span class="badge badge-primary mb-1">Public Repos: ${profile.public_repos}</span>
+          <span class="badge badge-secondary mb-1">Public Gists: ${profile.public_gists}</span>
+          <span class="badge badge-success mb-1">Followers: ${profile.followers}</span>
+          <span class="badge badge-info mb-1">Following: ${profile.following}</span>
           <br>
           <p class="text-muted mt-3">${profile.bio}</p>
           <ul class="list-group mt-2">
