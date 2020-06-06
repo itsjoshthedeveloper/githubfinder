@@ -3,7 +3,7 @@ class GitHub {
     // Access token
     this.config = {
       headers: {
-        Authorization: '5353b9e95c46b19ad3ce96d88cb0f4d182540068',
+        Authorization: 'token 5353b9e95c46b19ad3ce96d88cb0f4d182540068',
       },
     };
     // Number of returned repos

@@ -4,21 +4,6 @@ class UI {
     this.UIprofile = document.querySelector('#profile');
     this.UIcontainer = document.querySelector('.searchContainer');
     this.UIsearch = document.querySelector('.search');
-
-    this.months = [
-      'January',
-      'February',
-      'March',
-      'April',
-      'May',
-      'June',
-      'July',
-      'August',
-      'September',
-      'October',
-      'November',
-      'December',
-    ];
   }
 
   // Show profile

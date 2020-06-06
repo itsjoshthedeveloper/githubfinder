@@ -13,6 +13,20 @@ let UIsort = document.querySelector('.active');
 // Global vars
 let sort = UIsort.childNodes[2].textContent.trim();
 const repos_count = 10;
+const months = [
+  'January',
+  'February',
+  'March',
+  'April',
+  'May',
+  'June',
+  'July',
+  'August',
+  'September',
+  'October',
+  'November',
+  'December',
+];
 
 // Search input event listener
 UIinput.addEventListener('input', getInput);
@@ -83,7 +97,7 @@ function formatUser(user) {
   // New Date
   user.profile.created_at = new Date(user.profile.created_at);
   user.profile.created_at =
-    String(this.months[user.profile.created_at.getMonth()]) +
+    String(months[user.profile.created_at.getMonth()]) +
     ' ' +
     String(user.profile.created_at.getFullYear());
   return user;
