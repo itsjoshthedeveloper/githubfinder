@@ -71,5 +71,20 @@ function formatUser(user) {
       user.profile[key] = '';
     }
   });
+  // Website formatting
+  if (user.profile.blog.includes('http://')) {
+    user.profile.blog = user.profile.blog.replace('http://', '');
+  } else if (user.profile.blog.includes('https://')) {
+    user.profile.blog = user.profile.blog.replace('https://', '');
+  }
+  if (user.profile.blog.slice(-1) === '/') {
+    user.profile.blog = user.profile.blog.slice(0, -1);
+  }
+  // New Date
+  user.profile.created_at = new Date(user.profile.created_at);
+  user.profile.created_at =
+    String(this.months[user.profile.created_at.getMonth()]) +
+    ' ' +
+    String(user.profile.created_at.getFullYear());
   return user;
 }

@@ -23,21 +23,6 @@ class UI {
 
   // Show profile
   showProfile(profile) {
-    // Website formatting
-    if (profile.blog.includes('http://')) {
-      profile.blog = profile.blog.replace('http://', '');
-    } else if (profile.blog.includes('https://')) {
-      profile.blog = profile.blog.replace('https://', '');
-    }
-    if (profile.blog.slice(-1) === '/') {
-      profile.blog = profile.blog.slice(0, -1);
-    }
-    // New Date
-    profile.created_at = new Date(profile.created_at);
-    profile.created_at =
-      String(this.months[profile.created_at.getMonth()]) +
-      ' ' +
-      String(profile.created_at.getFullYear());
     // Create profile element
     this.UIprofile.innerHTML = `
       <div class="card card-body mb-3">
