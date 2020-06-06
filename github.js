@@ -3,7 +3,7 @@ class GitHub {
     this.client_id = '477c986d5b2dbd5249af';
     this.client_secret = 'ce27bc52b26be994d8aafae654f763682697bd8b';
     // Number of returned repos
-    this.repos_count = 5;
+    this.repos_count = 6000;
     // Repos sort
     this.repos_sort = 'created: asc';
   }

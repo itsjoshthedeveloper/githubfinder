@@ -17,8 +17,23 @@
   <div class="container searchContainer">
     <div class="search card card-body">
       <h1>Search GitHub Users</h1>
-      <p class="lead">Enter a username to fetch a user profile and repos</p>
-      <input type="text" id="searchUser" class="form-control" placeholder="GitHub Username...">
+      <div class="row">
+        <div class="col-md-9">
+          <p class="lead">Enter a username to fetch a user profile and repos</p>
+          <input type=" text" id="searchUser" class="form-control" placeholder="GitHub Username...">
+        </div>
+        <div class="col-md-3">
+          <p class="lead">Repos sort</p>
+          <div class="btn-group btn-group-toggle mb-2" data-toggle="buttons">
+            <label class="btn btn-primary active">
+              <input type="radio" name="options" id="option1" autocomplete="off" checked=""> Recent
+            </label>
+            <label class="btn btn-primary">
+              <input type="radio" name="options" id="option2" autocomplete="off"> Popular
+            </label>
+          </div>
+        </div>
+      </div>
     </div>
     <br>
     <div id="profile"></div>

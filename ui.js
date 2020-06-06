@@ -4,6 +4,21 @@ class UI {
     this.UIprofile = document.querySelector('#profile');
     this.UIcontainer = document.querySelector('.searchContainer');
     this.UIsearch = document.querySelector('.search');
+
+    this.months = [
+      'January',
+      'February',
+      'March',
+      'April',
+      'May',
+      'June',
+      'July',
+      'August',
+      'September',
+      'October',
+      'November',
+      'December',
+    ];
   }
 
   // Show profile
@@ -17,6 +32,12 @@ class UI {
     if (profile.blog.slice(-1) === '/') {
       profile.blog = profile.blog.slice(0, -1);
     }
+    // New Date
+    profile.created_at = new Date(profile.created_at);
+    profile.created_at =
+      String(this.months[profile.created_at.getMonth()]) +
+      ' ' +
+      String(profile.created_at.getFullYear());
     // Create profile element
     this.UIprofile.innerHTML = `
       <div class="card card-body mb-3">
@@ -26,12 +47,17 @@ class UI {
           <a href="${profile.html_url}" target="_blank" class="btn btn-primary btn-block mb-4">View Profile</a>
         </div>
         <div class="col-md-9">
+          <h4 class="mb-3">
+            ${profile.name}
+            <small class="text-muted">${profile.login}</small>
+          </h4>
           <span class="badge badge-primary">Public Repos: ${profile.public_repos}</span>
           <span class="badge badge-secondary">Public Gists: ${profile.public_gists}</span>
           <span class="badge badge-success">Followers: ${profile.followers}</span>
           <span class="badge badge-info">Following: ${profile.following}</span>
-          <br><br>
-          <ul class="list-group">
+          <br>
+          <p class="text-muted mt-3">${profile.bio}</p>
+          <ul class="list-group mt-2">
             <li class="list-group-item">Company: ${profile.company}</li>
             <li class="list-group-item">Website: <a href="http://${profile.blog}" target="_blank">${profile.blog}</a></li>
             <li class="list-group-item">Location: ${profile.location}</li>
